@@ -5,5 +5,6 @@ export const fetchData = async <T>(url: string): Promise<T> => {
     throw new Error("Network response was not ok");
   }
 
-  return response.json();
+  const data = response.json();
+  return data;
 };

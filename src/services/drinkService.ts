@@ -1,7 +1,7 @@
-import { IDrink } from "../models/IDrink";
+import { DrinkResponse } from "../models/DrinkResponse";
 import { fetchData } from "./drinkBase";
 
-export const getDrinks = async (): Promise<IDrink[]> => {
+export const getDrinks = async (): Promise<DrinkResponse> => {
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
-  return fetchData<IDrink[]>(url);
+  return fetchData<DrinkResponse>(url);
 };
