@@ -1,5 +1,5 @@
 export interface IDrink {
-  idDrink: string;
+  idDrink: number;
   strDrink: string;
   strDrinkThumb: string;
 }

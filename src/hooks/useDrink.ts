@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
 import { IDrink } from "../models/IDrink";
 
 export const useDrink = () => {
-  const [drinks, setDrinks] = useState<IDrink[]>([]);
+  const [drinkList, setDrinks] = useState<IDrink[]>([]);
 
-  //const findDrinks = (text: string) => {
+  const addDrinks = (drink: IDrink) => {
+    setDrinks([...drinkList, drink]);
+  };
 
-  setDrinks([...drinks])
-
-  }
-}
+  return { drinkList, addDrinks };
+};
