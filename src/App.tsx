@@ -1,72 +1,50 @@
-import "./App.css";
+import "./App.scss";
 import { getDrinks } from "./services/drinkService";
 import { IDrink } from "./models/IDrink";
 import { useState } from "react";
-import { useDrink } from "./hooks/useDrink";
+
+import { Drinks } from "./components/Drinks";
+import { SearchForm } from "./components/SearchForm";
+//import { useDrink } from "./hooks/useDrink";
 
 function App() {
-  const { drinkList, addDrinks } = useDrink();
-  const [drinks, setDrinks] = useState<IDrink[]>([]);
-  const [fetchDone, setFetchDone] = useState(false);
-  const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
+  const [submit, setSubmit] = useState(false);
+  const [drinks, setDrinks] = useState<IDrink[]>([]);
 
-  const handleAddToSelectedList = (drink: IDrink) => {
-    addDrinks(drink);
-  };
+  //const { drinkList, addDrinks } = useDrink();
 
-  console.log(drinkList);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const getAlldrinks = async () => {
+  const getAllDrinks = async (text: string) => {
+    try {
       setLoading(true);
-
-      try {
-        const drinks = await getDrinks(text);
-        setDrinks(drinks.drinks || []);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getAlldrinks();
-    setFetchDone(true);
+      const response = await getDrinks(text);
+      setDrinks(response.drinks || []);
+      setSubmit(true);
+    } catch (error) {
+      console.error("Error fetching drinks:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  ///const handleAddToSelectedList = (drink: IDrink) => {
+  ///addDrinks(drink);
+  //};
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Search for drinks"
-        ></input>
-        <button disabled={loading}>
-          {loading ? "Loading..." : "Find Drinks"}
-        </button>
-      </form>
-      {fetchDone &&
-        (drinks.length > 0 ? (
-          drinks.map((drink) => (
-            <div key={drink.idDrink}>
-              <h2>{drink.strDrink}</h2>
-              <img
-                src={drink.strDrinkThumb}
-                alt={drink.strDrink}
-                onClick={() => handleAddToSelectedList(drink)}
-              />
-            </div>
-          ))
-        ) : (
-          <p>No drinks found.</p>
-        ))}
+      <SearchForm searchDrinks={getAllDrinks}></SearchForm>
+      {loading && submit && <div>Loading...</div>}
+      {!loading && drinks.length === 0 && submit && <p>No drinks found.</p>}
+      <Drinks drinks={drinks}></Drinks>
 
-      {drinkList.map((d) => (
-        <div>{d.strDrink}</div>
-      ))}
+      {
+        //<div id="favourites">
+        //{drinkList.map((d) => (
+        //<div key={d.idDrink}>{d.strDrink}</div>
+        //))}
+        // </div>
+      }
     </>
   );
 }
