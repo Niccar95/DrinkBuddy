@@ -1,22 +1,16 @@
 import { IDrink } from "../models/IDrink";
+import { Drink } from "./Drink";
 
-interface IMoviesProps {
+interface IDrinksProps {
   drinks: IDrink[];
 }
 
-export const Drinks = ({ drinks }: IMoviesProps) => {
+export const Drinks = ({ drinks }: IDrinksProps) => {
   return (
     <>
       {drinks.length > 0 &&
         drinks.map((drink) => (
-          <div key={drink.idDrink}>
-            <h2>{drink.strDrink}</h2>
-            <img
-              src={drink.strDrinkThumb}
-              alt={drink.strDrink}
-              //onClick={() => handleAddToSelectedList(drink)}
-            />
-          </div>
+          <Drink drink={drink} key={drink.idDrink}></Drink>
         ))}
     </>
   );
