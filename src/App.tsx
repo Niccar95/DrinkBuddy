@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./styles/main.scss";
 import { getDrinks } from "./services/drinkService";
 import { IDrink } from "./models/IDrink";
 import { useState } from "react";
