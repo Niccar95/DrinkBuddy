@@ -10,10 +10,10 @@ export const Layout = () => {
               <NavLink to={"/"}>Home</NavLink>
             </li>
             <li>
-              <NavLink to={"/about"}>Drinks</NavLink>
+              <NavLink to={"/drinks"}>Drinks</NavLink>
             </li>
             <li>
-              <NavLink to={"/movies"}>Favourites</NavLink>
+              <NavLink to={"/favourites"}>Favourites</NavLink>
             </li>
           </ul>
         </nav>
