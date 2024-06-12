@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { IDrink } from "../models/IDrink";
 import { getDrinks } from "../services/drinkService";
-//import { useDrink } from "./hooks/useDrink";
-
 import { SearchForm } from "../components/SearchForm";
 import { Drinks } from "../components/Drinks";
+import { useDrink } from "../hooks/useDrink";
 
 export const DrinksPage = () => {
+  const { addDrinks } = useDrink();
   const [loading, setLoading] = useState(false);
   const [submit, setSubmit] = useState(false);
   const [drinks, setDrinks] = useState<IDrink[]>([]);
-
-  //const { drinkList, addDrinks } = useDrink();
 
   const getAllDrinks = async (text: string) => {
     try {
@@ -26,23 +24,12 @@ export const DrinksPage = () => {
     }
   };
 
-  ///const handleAddToSelectedList = (drink: IDrink) => {
-  ///addDrinks(drink);
-  //};
   return (
     <>
       <SearchForm searchDrinks={getAllDrinks}></SearchForm>
       {loading && submit && <div>Loading...</div>}
       {!loading && drinks.length === 0 && submit && <p>No drinks found.</p>}
-      <Drinks drinks={drinks}></Drinks>
-
-      {
-        //<div id="favourites">
-        //{drinkList.map((d) => (
-        //<div key={d.idDrink}>{d.strDrink}</div>
-        //))}
-        // </div>
-      }
+      <Drinks drinks={drinks} addDrink={addDrinks}></Drinks>
     </>
   );
 };
