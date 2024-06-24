@@ -4,9 +4,10 @@ import { Drink } from "./Drink";
 interface IDrinksProps {
   drinks: IDrink[];
   addDrink: (drink: IDrink) => void;
+  findDrink: (id: string) => void;
 }
 
-export const Drinks = ({ drinks, addDrink }: IDrinksProps) => {
+export const Drinks = ({ drinks, addDrink, findDrink }: IDrinksProps) => {
   return (
     <>
       <section id="drinkSection">
@@ -16,6 +17,7 @@ export const Drinks = ({ drinks, addDrink }: IDrinksProps) => {
               drink={drink}
               key={drink.idDrink}
               addDrink={addDrink}
+              findDrink={findDrink}
             ></Drink>
           ))}
       </section>
