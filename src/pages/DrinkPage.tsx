@@ -7,11 +7,11 @@ export const DrinkPage = () => {
   const { id } = useParams<{ id: string }>();
   const { findDrink, foundDrink } = useFindDrink();
 
-  const [loadedId, setLoadedId] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  if (id && id !== loadedId) {
+  if (id && !loading) {
     findDrink(id);
-    setLoadedId(id);
+    setLoading(true);
   }
 
   console.log(foundDrink?.strDrink);
