@@ -6,6 +6,7 @@ import { DrinksPage } from "./pages/DrinksPage";
 
 import { Favourites } from "./pages/Favourites";
 import { DrinkPage } from "./pages/DrinkPage";
+import { drinkLoader } from "./loader/drinkLoader";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       {
         path: "/drinks",
         element: <DrinksPage></DrinksPage>,
+        loader: drinkLoader,
       },
       {
         path: "/drink/:id",

@@ -5,13 +5,16 @@ import { SearchForm } from "../components/SearchForm";
 import { Drinks } from "../components/Drinks";
 import { useDrink } from "../hooks/useDrink";
 import { useFindDrink } from "../hooks/useFindDrink";
+import { useLoaderData } from "react-router-dom";
+import { IDrinkLoader } from "../loader/drinkLoader";
 
 export const DrinksPage = () => {
+  const { loadedDrinks } = useLoaderData() as IDrinkLoader;
   const { addDrinks } = useDrink();
   const { findDrink } = useFindDrink();
   const [loading, setLoading] = useState(false);
   const [submit, setSubmit] = useState(false);
-  const [drinks, setDrinks] = useState<IDrink[]>([]);
+  const [drinks, setDrinks] = useState<IDrink[]>(loadedDrinks || []);
 
   const getAllDrinks = async (text: string) => {
     try {
@@ -30,6 +33,9 @@ export const DrinksPage = () => {
 
         setDrinks(response.drinks || []);
         localStorage.setItem("storedDrinks", JSON.stringify(response));
+
+        localStorage.setItem("searchText", text); // Store searchText in localStorage
+
         console.log("Fetched drinks successfully:", response.drinks);
       }
     } catch (error) {

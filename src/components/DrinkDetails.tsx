@@ -5,11 +5,12 @@ interface IFoundDrinkProps {
 }
 
 export const DrinkDetails = ({ foundDrink }: IFoundDrinkProps) => {
-  console.log("Found Drink:", foundDrink); // Log to check the foundDrink object
-  console.log("Drink Name:", foundDrink?.strDrink); // Log to check the drink's name
+  console.log("Found Drink:", foundDrink);
+  console.log("Drink Name:", foundDrink?.strDrink);
   return (
     <>
       <h1>{foundDrink?.strDrink}</h1>
+      <img src={foundDrink?.strDrinkThumb} alt={foundDrink?.strDrink}></img>
     </>
   );
 };
