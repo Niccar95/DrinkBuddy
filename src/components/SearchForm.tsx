@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface IDrinkSearchProps {
   searchDrinks: (t: string) => void;
@@ -6,10 +7,12 @@ interface IDrinkSearchProps {
 
 export const SearchForm = ({ searchDrinks }: IDrinkSearchProps) => {
   const [text, setText] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchDrinks(text);
+    navigate(`?query=${text}`);
   };
 
   return (

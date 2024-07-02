@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IDrink } from "../models/IDrink";
 import { getDrinks } from "../services/drinkService";
 import { SearchForm } from "../components/SearchForm";
 import { Drinks } from "../components/Drinks";
 import { useDrink } from "../hooks/useDrink";
 import { useFindDrink } from "../hooks/useFindDrink";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import { IDrinkLoader } from "../loader/drinkLoader";
 
 export const DrinksPage = () => {
@@ -15,6 +15,15 @@ export const DrinksPage = () => {
   const [loading, setLoading] = useState(false);
   const [submit, setSubmit] = useState(false);
   const [drinks, setDrinks] = useState<IDrink[]>(loadedDrinks || []);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const query = searchParams.get("query") || "";
+
+  useEffect(() => {
+    if (query) {
+      getAllDrinks(query);
+    }
+  }, [query]);
 
   const getAllDrinks = async (text: string) => {
     try {
@@ -34,8 +43,6 @@ export const DrinksPage = () => {
         setDrinks(response.drinks || []);
         localStorage.setItem("storedDrinks", JSON.stringify(response));
 
-        localStorage.setItem("searchText", text); // Store searchText in localStorage
-
         console.log("Fetched drinks successfully:", response.drinks);
       }
     } catch (error) {
@@ -47,7 +54,9 @@ export const DrinksPage = () => {
 
   return (
     <>
-      <SearchForm searchDrinks={getAllDrinks}></SearchForm>
+      <SearchForm
+        searchDrinks={(text) => setSearchParams({ query: text })}
+      ></SearchForm>
       {loading && submit && <div>Loading...</div>}
       {!loading && drinks.length === 0 && submit && <p>No drinks found.</p>}
       <Drinks
