@@ -8,13 +8,15 @@ export const FavouritesPresentation = () => {
     <>
       {favouriteList.length > 0 ? (
         favouriteList.map((drink) => (
-          <div id="favouriteCard" key={drink.idDrink}>
+          <article id="favouriteCard" key={drink.idDrink}>
             <h2>{drink.strDrink}</h2>
-            <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+            <div className="drinkImg">
+              <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+            </div>
             <button onClick={() => removeDrinks(drink.idDrink)}>
               Remove from favourites
             </button>
-          </div>
+          </article>
         ))
       ) : (
         <p>No drinks added to favourites yet.</p>

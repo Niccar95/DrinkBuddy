@@ -23,7 +23,7 @@ export const Drink = ({ drink, addDrink, findDrink }: IDrinkProps) => {
     <>
       <div id="drinkCard">
         <h2>{drink.strDrink}</h2>
-        <div id="drinkImg">
+        <div className="drinkImg">
           <img
             src={drink.strDrinkThumb}
             alt={drink.strDrink}
