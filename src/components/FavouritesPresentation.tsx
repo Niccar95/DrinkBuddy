@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react";
-
-import { IDrink } from "../models/IDrink";
+import { useDrink } from "../hooks/useDrink";
 
 export const FavouritesPresentation = () => {
-  const [favouriteList, setDrinkList] = useState<IDrink[]>([]);
+  const { removeDrinks, favouriteList } = useDrink();
   console.log(favouriteList);
-
-  useEffect(() => {
-    const storedDrinkList = localStorage.getItem("favouriteList");
-    if (storedDrinkList) {
-      setDrinkList(JSON.parse(storedDrinkList));
-    }
-  }, []);
 
   return (
     <>
       {favouriteList.length > 0 ? (
         favouriteList.map((drink) => (
-          <div key={drink.idDrink}>
+          <div id="favouriteCard" key={drink.idDrink}>
             <h2>{drink.strDrink}</h2>
             <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+            <button onClick={() => removeDrinks(drink.idDrink)}>
+              Remove from favourites
+            </button>
           </div>
         ))
       ) : (
