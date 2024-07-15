@@ -5,9 +5,15 @@ interface IDrinkProps {
   drink: IDrink;
   addDrink: (drink: IDrink) => void;
   findDrink: (id: string) => void;
+  isDrinkAdded: (id: string) => boolean;
 }
 
-export const Drink = ({ drink, addDrink, findDrink }: IDrinkProps) => {
+export const Drink = ({
+  drink,
+  addDrink,
+  findDrink,
+  isDrinkAdded,
+}: IDrinkProps) => {
   const navigate = useNavigate();
 
   const handleAddDrink = () => {
@@ -30,7 +36,11 @@ export const Drink = ({ drink, addDrink, findDrink }: IDrinkProps) => {
             onClick={handleNavigation}
           />
         </div>
-        <button onClick={handleAddDrink}>Add to favourites</button>
+        <button onClick={handleAddDrink} disabled={isDrinkAdded(drink.idDrink)}>
+          {isDrinkAdded(drink.idDrink)
+            ? "Added to Favourites"
+            : "Add to Favourites"}
+        </button>
       </div>
     </>
   );

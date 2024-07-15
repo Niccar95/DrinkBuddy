@@ -10,7 +10,7 @@ import { IDrinkLoader } from "../loader/drinkLoader";
 
 export const DrinksPage = () => {
   const { loadedDrinks } = useLoaderData() as IDrinkLoader;
-  const { addDrinks } = useDrink();
+  const { addDrinks, isDrinkAdded } = useDrink();
   const { findDrink } = useFindDrink();
   const [loading, setLoading] = useState(false);
   const [submit, setSubmit] = useState(false);
@@ -63,6 +63,7 @@ export const DrinksPage = () => {
         drinks={drinks}
         addDrink={addDrinks}
         findDrink={findDrink}
+        isDrinkAdded={isDrinkAdded}
       ></Drinks>
     </>
   );

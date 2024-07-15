@@ -21,11 +21,15 @@ export const useDrink = () => {
     }
   };
 
+  const isDrinkAdded = (id: string) => {
+    return favouriteList.some((drink) => drink.idDrink === id);
+  };
+
   const removeDrinks = (id: string) => {
     const newDrinkList = favouriteList.filter((d) => d.idDrink !== id);
     setDrinkList(newDrinkList);
     localStorage.setItem("favouriteList", JSON.stringify(newDrinkList));
   };
 
-  return { addDrinks, removeDrinks, favouriteList };
+  return { addDrinks, removeDrinks, favouriteList, isDrinkAdded };
 };
