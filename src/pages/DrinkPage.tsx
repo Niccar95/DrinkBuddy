@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import { DrinkDetails } from "../components/DrinkDetails";
 import { useFindDrink } from "../hooks/useFindDrink";
 import { useState } from "react";
+import { useDrink } from "../hooks/useDrink";
 
 export const DrinkPage = () => {
   const { id } = useParams<{ id: string }>();
   const { findDrink, foundDrink } = useFindDrink();
+  const { addDrinks, isDrinkAdded } = useDrink();
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -19,7 +21,11 @@ export const DrinkPage = () => {
   return (
     <>
       {foundDrink ? (
-        <DrinkDetails foundDrink={foundDrink} />
+        <DrinkDetails
+          foundDrink={foundDrink}
+          addDrink={addDrinks}
+          isDrinkAdded={isDrinkAdded}
+        />
       ) : (
         <p>Loading...</p>
       )}
