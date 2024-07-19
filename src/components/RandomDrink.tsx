@@ -1,7 +1,7 @@
-import { IDrink } from "../models/IDrink";
+import { ICompleteDrinkInfo } from "../models/IDrink";
 
 interface IRandomDrinkProps {
-  randomDrink: IDrink[];
+  randomDrink: ICompleteDrinkInfo[];
 }
 
 export const RandomDrink = ({ randomDrink }: IRandomDrinkProps) => {
@@ -9,10 +9,19 @@ export const RandomDrink = ({ randomDrink }: IRandomDrinkProps) => {
     <>
       {randomDrink.length > 0 &&
         randomDrink.map((drink) => (
-          <div key={drink.idDrink}>
-            <h2>{drink.strDrink}</h2>
-            <img src={drink.strDrinkThumb} alt={drink.strDrink}></img>
-          </div>
+          <article id="randomDrinkCard" key={drink.idDrink}>
+            <div className="imageContainer">
+              <img
+                className="randomDrinkImage"
+                src={drink.strDrinkThumb}
+                alt={drink.strDrink}
+              ></img>
+            </div>
+            <section>
+              <h2>{drink.strDrink}</h2>
+              <p>{drink.strInstructions}</p>
+            </section>
+          </article>
         ))}
     </>
   );

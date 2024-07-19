@@ -3,15 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -24,6 +17,7 @@
   border: solid red;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1em;
   padding: 2em;
   min-height: 100vh;
@@ -40,6 +34,18 @@ a:hover {
 
 body {
   margin: 0;
+}
+
+nav {
+  padding: 1em;
+  border: solid white;
+
+  ul {
+    width: 100%;
+    display: flex;
+    gap: 4em;
+    list-style: none;
+  }
 }
 
 h1 {
@@ -64,17 +70,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

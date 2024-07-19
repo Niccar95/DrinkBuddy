@@ -37,3 +37,18 @@
     }
   }
 }
+
+#randomDrinkCard {
+  display: flex;
+  border: solid white;
+  gap: 1em;
+  padding: 1em;
+
+  .imageContainer {
+    width: 30%;
+
+    .randomDrinkImage {
+      width: 100%;
+    }
+  }
+}

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import { getDrink } from "../services/drinkService";
-import { IDrink } from "../models/IDrink";
+import { getRandom } from "../services/drinkService";
+import { ICompleteDrinkInfo } from "../models/IDrink";
 import { RandomDrink } from "../components/RandomDrink";
 
 export const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [drink, setDrink] = useState<IDrink[]>([]);
+  const [drink, setDrink] = useState<ICompleteDrinkInfo[]>([]);
 
   useEffect(() => {
     const getRandomDrink = async () => {
       try {
         setLoading(true);
-        const response = await getDrink();
-        setDrink(response.drinks || []);
+        const response = await getRandom();
+        setDrink(response);
 
-        console.log("Fetched drink successfully:", response.drinks);
+        console.log("Fetched drink successfully:", response);
       } catch (error) {
         console.error("Error fetching drink:", error);
       } finally {

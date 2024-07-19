@@ -26,8 +26,7 @@ export interface IDrinkInfo extends IDrink {
   strCategory: string;
   strAlcoholic: string;
   strGlass: string;
-}
-
-export interface IDrinkInstructions extends IDrink {
   strInstructions: string;
 }
+
+export type ICompleteDrinkInfo = IDrink & IDrinkIngredients & IDrinkInfo;
