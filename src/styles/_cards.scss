@@ -41,14 +41,29 @@
 #randomDrinkCard {
   display: flex;
   border: solid white;
-  gap: 1em;
+  gap: 2em;
   padding: 1em;
 
-  .imageContainer {
+  .randomImageContainer {
     width: 30%;
 
     .randomDrinkImage {
       width: 100%;
+    }
+  }
+
+  #randomInfoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 50%;
+
+    .randomIngredientsList {
+      list-style-position: inside;
+    }
+
+    #randomInstructions {
+      line-height: 2em;
     }
   }
 }

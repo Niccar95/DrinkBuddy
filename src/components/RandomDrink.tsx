@@ -17,21 +17,26 @@ export const RandomDrink = ({ randomDrink }: IRandomDrinkProps) => {
 
           return (
             <article id="randomDrinkCard" key={drink.idDrink}>
-              <div className="imageContainer">
+              <div className="randomImageContainer">
                 <img
                   className="randomDrinkImage"
                   src={drink.strDrinkThumb}
                   alt={drink.strDrink}
                 ></img>
               </div>
-              <section>
+              <section id="randomInfoSection">
                 <h2>{drink.strDrink}</h2>
-                <ul>
+                <ul className="randomIngredientsList">
                   {ingredientKeys.map((key) => (
                     <li key={key}>{drink[key as keyof ICompleteDrinkInfo]}</li>
                   ))}
                 </ul>
-                <p>{drink.strInstructions}</p>
+
+                <section id="randomInstructions">
+                  <p className="randomDrinkInstructions">
+                    {drink.strInstructions}
+                  </p>
+                </section>
               </section>
             </article>
           );

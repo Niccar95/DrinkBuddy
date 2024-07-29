@@ -54,6 +54,7 @@ export const DrinksPage = () => {
 
   return (
     <>
+      <h1 className="pageTitle">Drinks</h1>
       <SearchForm
         searchDrinks={(text) => setSearchParams({ query: text })}
       ></SearchForm>
