@@ -85,13 +85,13 @@ main {
 form {
   padding: 1em;
   width: 30%;
-  border: solid white;
 
   .inputContainer {
     display: flex;
     border: solid white;
     height: 50px;
     input {
+      border: none;
       height: 100%;
       padding: 1em;
       width: 100%;
@@ -100,10 +100,12 @@ form {
       background-repeat: no-repeat;
       background-size: 20px 20px;
       padding-left: 40px;
+      box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     }
     .searchButton {
       height: 100%;
-      padding: 0.2em 1.5em;
+      padding: 0.2em 2em;
+      border: none;
       border-left: solid white;
     }
   }
