@@ -7,9 +7,10 @@
   gap: 1em;
   padding: 1em;
   border: solid white 1px;
+  width: 50%;
 
   @include desktop() {
-    width: 30%;
+    width: 100%;
   }
 
   .drinkImgContainer {

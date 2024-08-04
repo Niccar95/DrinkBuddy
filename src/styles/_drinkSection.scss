@@ -1,10 +1,7 @@
 #drinkSection {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2em;
-  border: solid white 1px;
-  padding: 2em;
-  width: 70%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
   min-height: 500px;
 }
