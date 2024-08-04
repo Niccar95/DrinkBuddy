@@ -40,12 +40,22 @@
 
 #randomDrinkCard {
   display: flex;
+  flex-direction: column;
   border: solid white;
-  gap: 2em;
+  gap: 0.5em;
   padding: 1em;
 
+  @include desktop() {
+    gap: 2em;
+    flex-direction: row;
+  }
+
   .randomImageContainer {
-    width: 30%;
+    width: 50%;
+
+    @include desktop() {
+      width: 30%;
+    }
 
     .randomDrinkImage {
       width: 100%;
@@ -56,14 +66,30 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 50%;
 
-    .randomIngredientsList {
-      list-style-position: inside;
+    @include desktop() {
+      width: 50%;
     }
 
-    #randomInstructions {
-      line-height: 2em;
+    .randomIngredientsList {
+      list-style: none;
+      padding-left: 0;
+
+      .randomListItem {
+        display: flex;
+        align-items: flex-start;
+
+        @include desktop() {
+          padding-left: 1em;
+        }
+
+        &::before {
+          content: "🍸";
+          font-size: 1em;
+          margin-right: 0.5em;
+          line-height: 2;
+        }
+      }
     }
   }
 }

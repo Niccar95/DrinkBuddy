@@ -28,7 +28,9 @@ export const RandomDrink = ({ randomDrink }: IRandomDrinkProps) => {
                 <h2>{drink.strDrink}</h2>
                 <ul className="randomIngredientsList">
                   {ingredientKeys.map((key) => (
-                    <li key={key}>{drink[key as keyof ICompleteDrinkInfo]}</li>
+                    <li className="randomListItem" key={key}>
+                      {drink[key as keyof ICompleteDrinkInfo]}
+                    </li>
                   ))}
                 </ul>
 

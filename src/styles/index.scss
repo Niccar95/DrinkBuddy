@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -61,6 +63,12 @@ header {
     padding: 1em;
     padding-left: 3em;
     background-color: black;
+
+    @include desktop() {
+      width: 100%;
+      padding: 1em;
+      padding-left: 3em;
+    }
 
     ul {
       width: 100%;
