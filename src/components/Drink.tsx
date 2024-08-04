@@ -29,7 +29,7 @@ export const Drink = ({
     <>
       <div id="drinkCard">
         <h2>{drink.strDrink}</h2>
-        <div className="drinkImg">
+        <div className="drinkImgContainer">
           <img
             src={drink.strDrinkThumb}
             alt={drink.strDrink}

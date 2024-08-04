@@ -26,7 +26,7 @@ export const Home = () => {
 
   return (
     <>
-      <h1 className="pageTitle">Home page</h1>
+      <h1 className="pageTitle">Home</h1>
       {loading && <div>Loading...</div>}
       <RandomDrink randomDrink={drink}></RandomDrink>
     </>
