@@ -1,8 +1,9 @@
-import { IDrink } from "../models/IDrink";
+import { ICompleteDrinkInfo } from "../models/IDrink";
+import { DrinkInfo } from "./DrinkInfo";
 
 interface IFoundDrinkProps {
-  foundDrink: IDrink;
-  addDrink: (drink: IDrink) => void;
+  foundDrink: ICompleteDrinkInfo;
+  addDrink: (drink: ICompleteDrinkInfo) => void;
   isDrinkAdded: (id: string) => boolean;
 }
 
@@ -19,8 +20,7 @@ export const DrinkDetails = ({
   };
   return (
     <>
-      <h1>{foundDrink?.strDrink}</h1>
-      <img src={foundDrink.strDrinkThumb} alt={foundDrink.strDrink}></img>
+      <DrinkInfo drink={foundDrink} />
       <button
         onClick={handleAddDrink}
         disabled={isDrinkAdded(foundDrink.idDrink)}

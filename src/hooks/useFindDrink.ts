@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { IDrink } from "../models/IDrink";
+import { ICompleteDrinkInfo, IDrink } from "../models/IDrink";
 
 export const useFindDrink = () => {
   const storedData = JSON.parse(localStorage.getItem("storedDrinks") || "{}");
-  const [foundDrink, setFoundDrink] = useState<IDrink | undefined>();
+  const [foundDrink, setFoundDrink] = useState<
+    ICompleteDrinkInfo | undefined
+  >();
 
   const storedDrinks = storedData.drinks || [];
 
