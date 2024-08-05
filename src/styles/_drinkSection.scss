@@ -1,7 +1,15 @@
+@import "breakpoints";
+
 #drinkSection {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1em;
-  min-height: 500px;
+  width: 100%;
+
+  @include desktop() {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    min-height: 500px;
+  }
 }
