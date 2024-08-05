@@ -36,7 +36,9 @@ export const Drink = ({
             onClick={handleNavigation}
           />
         </div>
-        <NavLink to={"/drink/" + drink.idDrink}>Read more</NavLink>
+        <NavLink className="readMoreLink" to={"/drink/" + drink.idDrink}>
+          Read more
+        </NavLink>
         <button onClick={handleAddDrink} disabled={isDrinkAdded(drink.idDrink)}>
           {isDrinkAdded(drink.idDrink)
             ? "Added to Favourites"
