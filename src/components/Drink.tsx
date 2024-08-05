@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IDrink } from "../models/IDrink";
 
 interface IDrinkProps {
@@ -36,6 +36,7 @@ export const Drink = ({
             onClick={handleNavigation}
           />
         </div>
+        <NavLink to={"/drink/" + drink.idDrink}>Read more</NavLink>
         <button onClick={handleAddDrink} disabled={isDrinkAdded(drink.idDrink)}>
           {isDrinkAdded(drink.idDrink)
             ? "Added to Favourites"
