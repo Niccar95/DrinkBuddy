@@ -1,22 +1,24 @@
 import { useDrink } from "../hooks/useDrink";
+import { ICompleteDrinkInfo } from "../models/IDrink";
+import { DrinkInfo } from "./DrinkInfo";
 
 export const FavouritesPresentation = () => {
   const { removeDrinks, favouriteList } = useDrink();
   console.log(favouriteList);
 
+  const completeFavouritesList = favouriteList as ICompleteDrinkInfo[];
   return (
     <>
-      {favouriteList.length > 0 ? (
-        favouriteList.map((drink) => (
-          <article id="favouriteCard" key={drink.idDrink}>
-            <h2>{drink.strDrink}</h2>
-            <div className="drinkImg">
-              <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+      {completeFavouritesList.length > 0 ? (
+        completeFavouritesList.map((drink) => (
+          <>
+            <div key={drink.idDrink}>
+              <DrinkInfo drink={drink} />
+              <button onClick={() => removeDrinks(drink.idDrink)}>
+                Remove from favourites
+              </button>
             </div>
-            <button onClick={() => removeDrinks(drink.idDrink)}>
-              Remove from favourites
-            </button>
-          </article>
+          </>
         ))
       ) : (
         <p>No drinks added to favourites yet.</p>
