@@ -18,6 +18,13 @@ export const Layout = () => {
     }
     setIsMenuClicked(!isMenuClicked);
   };
+
+  const closeMenu = () => {
+    setBurgerClass("burgerBar unclicked");
+    setMenuClass("menu hidden");
+    setIsMenuClicked(false);
+  };
+
   return (
     <>
       <header>
@@ -33,13 +40,19 @@ export const Layout = () => {
           <div className={menuClass}>
             <ul className="navList">
               <li>
-                <NavLink to={"/"}>Home</NavLink>
+                <NavLink to={"/"} onClick={closeMenu}>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"/drinks"}>Drinks</NavLink>
+                <NavLink to={"/drinks"} onClick={closeMenu}>
+                  Drinks
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"/favourites"}>Favourites</NavLink>
+                <NavLink to={"/favourites"} onClick={closeMenu}>
+                  Favourites
+                </NavLink>
               </li>
             </ul>
           </div>
