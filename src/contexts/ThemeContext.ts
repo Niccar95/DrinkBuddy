@@ -19,7 +19,7 @@ export const themes: IThemes = {
   },
   dark: {
     name: "Dark",
-    backgroundColor: "black",
+    backgroundColor: "#22303C",
     textColor: "white",
   },
 };
