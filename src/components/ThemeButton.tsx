@@ -6,7 +6,9 @@ interface IButtonProps {
 export const ThemeButton = ({ children, click }: IButtonProps) => {
   return (
     <>
-      <button onClick={click}>{children}</button>
+      <button className="themeButton" onClick={click}>
+        {children}
+      </button>
     </>
   );
 };
