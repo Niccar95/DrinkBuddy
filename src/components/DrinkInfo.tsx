@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { ICompleteDrinkInfo } from "../models/IDrink";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 interface IDrinkInfoProps {
   drink: ICompleteDrinkInfo;
@@ -10,8 +12,14 @@ export const DrinkInfo = ({ drink }: IDrinkInfoProps) => {
       key.startsWith("strIngredient") && drink[key as keyof ICompleteDrinkInfo]
   );
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <article className="drinkDetailsCard" key={drink.idDrink}>
+    <article
+      className="drinkDetailsCard"
+      key={drink.idDrink}
+      style={{ borderStyle: theme.borderStyle, borderColor: theme.borderColor }}
+    >
       <div className="imageContainer">
         <img
           className="drinkImage"
