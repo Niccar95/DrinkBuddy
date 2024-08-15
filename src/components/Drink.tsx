@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { IDrink } from "../models/IDrink";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 interface IDrinkProps {
   drink: IDrink;
@@ -25,9 +27,17 @@ export const Drink = ({
     findDrink(drink.idDrink);
   };
 
+  const theme = useContext(ThemeContext);
+
   return (
     <>
-      <div id="drinkCard">
+      <div
+        id="drinkCard"
+        style={{
+          borderStyle: theme.borderStyle,
+          borderColor: theme.borderColor,
+        }}
+      >
         <h2>{drink.strDrink}</h2>
         <div className="drinkImgContainer">
           <img
@@ -36,7 +46,11 @@ export const Drink = ({
             onClick={handleNavigation}
           />
         </div>
-        <NavLink className="readMoreLink" to={"/drink/" + drink.idDrink}>
+        <NavLink
+          className="readMoreLink"
+          to={"/drink/" + drink.idDrink}
+          style={{ color: theme.textColor }}
+        >
           Read more
         </NavLink>
         <button onClick={handleAddDrink} disabled={isDrinkAdded(drink.idDrink)}>

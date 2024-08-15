@@ -4,6 +4,8 @@ export interface ITheme {
   name: string;
   backgroundColor: string;
   textColor: string;
+  borderStyle: string;
+  borderColor: string;
 }
 
 export interface IThemes {
@@ -16,11 +18,15 @@ export const themes: IThemes = {
     name: "Light",
     backgroundColor: "white",
     textColor: "black",
+    borderStyle: "solid",
+    borderColor: "black",
   },
   dark: {
     name: "Dark",
     backgroundColor: "#22303C",
     textColor: "white",
+    borderStyle: "solid",
+    borderColor: "white",
   },
 };
 
