@@ -2,6 +2,7 @@ export interface IDrink {
   idDrink: string;
   strDrink: string;
   strDrinkThumb: string;
+  strAlcoholic: string;
 }
 
 export interface IDrinkIngredients extends IDrink {
@@ -24,7 +25,6 @@ export interface IDrinkIngredients extends IDrink {
 
 export interface IDrinkInfo extends IDrink {
   strCategory: string;
-  strAlcoholic: string;
   strGlass: string;
   strInstructions: string;
 }

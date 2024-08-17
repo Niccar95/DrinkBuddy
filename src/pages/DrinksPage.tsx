@@ -7,6 +7,7 @@ import { useDrink } from "../hooks/useDrink";
 import { useFindDrink } from "../hooks/useFindDrink";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { IDrinkLoader } from "../loader/drinkLoader";
+import { useFilterDrinks } from "../hooks/useFilterDrinks";
 
 export const DrinksPage = () => {
   const { loadedDrinks } = useLoaderData() as IDrinkLoader;
@@ -16,6 +17,9 @@ export const DrinksPage = () => {
   const [submit, setSubmit] = useState(false);
   const [drinks, setDrinks] = useState<IDrink[]>(loadedDrinks || []);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [allDrinks, setAllDrinks] = useState<IDrink[]>(loadedDrinks || []);
+
+  const [nonAlcoholicOnly, setNonAlcoholicOnly] = useState(false);
 
   const query = searchParams.get("query") || "";
 
@@ -36,10 +40,12 @@ export const DrinksPage = () => {
       console.log("Stored Drinks JSON:", drinkData);
 
       if (drinkData.length > 0) {
+        setAllDrinks(drinkData);
         console.log("Got drinks from localStorage:", drinkData.length);
       } else {
         const response = await getDrinks(text);
 
+        setAllDrinks(response.drinks || []);
         setDrinks(response.drinks || []);
         localStorage.setItem("storedDrinks", JSON.stringify(response));
 
@@ -52,11 +58,21 @@ export const DrinksPage = () => {
     }
   };
 
+  const { filterDrinks } = useFilterDrinks(allDrinks);
+
+  const handleFilterChange = (checked: boolean) => {
+    setNonAlcoholicOnly(checked);
+    const filtered = filterDrinks(checked);
+    setDrinks(filtered);
+  };
+
   return (
     <>
       <h1 className="pageTitle">Search for drinks</h1>
       <SearchForm
         searchDrinks={(text) => setSearchParams({ query: text })}
+        filterDrinks={handleFilterChange}
+        nonAlcoholicOnly={nonAlcoholicOnly}
       ></SearchForm>
       {loading && submit && <div>Loading...</div>}
       {!loading && drinks.length === 0 && submit && <p>No drinks found.</p>}

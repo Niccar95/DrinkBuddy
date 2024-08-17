@@ -3,9 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 interface IDrinkSearchProps {
   searchDrinks: (t: string) => void;
+  filterDrinks: (checked: boolean) => void;
+  nonAlcoholicOnly: boolean;
 }
 
-export const SearchForm = ({ searchDrinks }: IDrinkSearchProps) => {
+export const SearchForm = ({
+  searchDrinks,
+  filterDrinks,
+  nonAlcoholicOnly,
+}: IDrinkSearchProps) => {
   const [text, setText] = useState("");
   const navigate = useNavigate();
 
@@ -13,6 +19,10 @@ export const SearchForm = ({ searchDrinks }: IDrinkSearchProps) => {
     e.preventDefault();
     searchDrinks(text);
     navigate(`?query=${text}`);
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    filterDrinks(e.target.checked);
   };
 
   return (
@@ -27,6 +37,15 @@ export const SearchForm = ({ searchDrinks }: IDrinkSearchProps) => {
           ></input>
 
           <button className="searchButton">Search</button>
+        </div>
+        <div className="checkboxContainer">
+          <label htmlFor="nonAlcoholic">Non-alcoholic only: </label>
+          <input
+            type="checkbox"
+            id="nonAlcoholic"
+            checked={nonAlcoholicOnly}
+            onChange={handleCheckboxChange}
+          ></input>
         </div>
       </form>
     </>

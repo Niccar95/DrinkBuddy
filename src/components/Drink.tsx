@@ -45,6 +45,7 @@ export const Drink = ({
             alt={drink.strDrink}
             onClick={handleNavigation}
           />
+          <p className="drinkTag">{drink.strAlcoholic}</p>
         </div>
         <NavLink
           className="readMoreLink"

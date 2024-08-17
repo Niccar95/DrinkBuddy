@@ -26,6 +26,7 @@ export const DrinkInfo = ({ drink }: IDrinkInfoProps) => {
           src={drink.strDrinkThumb}
           alt={drink.strDrink}
         ></img>
+        <p className="drinkTag">{drink.strAlcoholic}</p>
       </div>
       <section className="infoSection">
         <h2>{drink.strDrink}</h2>
