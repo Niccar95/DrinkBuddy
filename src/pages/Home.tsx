@@ -26,8 +26,9 @@ export const Home = () => {
 
   return (
     <>
-      <h1 className="pageTitle">Home</h1>
+      <h1>Home</h1>
       {loading && <div>Loading...</div>}
+      <h2>Featured drink</h2>
       <RandomDrink randomDrink={drink}></RandomDrink>
     </>
   );

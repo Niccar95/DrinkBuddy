@@ -16,8 +16,6 @@ export const DrinkPage = () => {
     setLoading(true);
   }
 
-  console.log(foundDrink?.strDrink);
-
   return (
     <>
       {foundDrink ? (

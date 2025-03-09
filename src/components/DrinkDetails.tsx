@@ -12,9 +12,6 @@ export const DrinkDetails = ({
   addDrink,
   isDrinkAdded,
 }: IFoundDrinkProps) => {
-  console.log("Found Drink:", foundDrink);
-  console.log("Drink Name:", foundDrink?.strDrink);
-
   const handleAddDrink = () => {
     addDrink(foundDrink);
   };

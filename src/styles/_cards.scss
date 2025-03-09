@@ -6,7 +6,6 @@
   align-items: center;
   gap: 1em;
   padding: 1em;
-  border: solid white 1px;
 
   @include desktop() {
     width: 100%;
@@ -38,7 +37,6 @@
 .drinkDetailsCard {
   display: flex;
   flex-direction: column;
-  border: solid white;
   gap: 0.5em;
   padding: 1em;
 

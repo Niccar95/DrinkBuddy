@@ -18,12 +18,6 @@ function App() {
     }
   };
 
-  //const theme = {
-  //name: "Dark",
-  //backgroundColor: "black",
-  //textColor: "white",
-  //};
-
   return (
     <>
       <ThemeContext.Provider value={theme}>
@@ -31,6 +25,8 @@ function App() {
           style={{
             backgroundColor: theme.backgroundColor,
             color: theme.textColor,
+            boxShadow: theme.shadow,
+            transition: "all 0.3s ease-in-out",
           }}
         >
           <ThemeButton click={toggleTheme}>

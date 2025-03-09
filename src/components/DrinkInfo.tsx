@@ -18,7 +18,11 @@ export const DrinkInfo = ({ drink }: IDrinkInfoProps) => {
     <article
       className="drinkDetailsCard"
       key={drink.idDrink}
-      style={{ borderStyle: theme.borderStyle, borderColor: theme.borderColor }}
+      style={{
+        border: `${theme.borderStyle} 1px ${theme.borderColor}`,
+        boxShadow: theme.shadow,
+        backgroundColor: theme.cardBackground,
+      }}
     >
       <div className="imageContainer">
         <img

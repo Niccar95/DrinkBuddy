@@ -68,7 +68,7 @@ export const DrinksPage = () => {
 
   return (
     <>
-      <h1 className="pageTitle">Search for drinks</h1>
+      <h1>Search for drinks</h1>
       <SearchForm
         searchDrinks={(text) => setSearchParams({ query: text })}
         filterDrinks={handleFilterChange}

@@ -34,8 +34,9 @@ export const Drink = ({
       <div
         id="drinkCard"
         style={{
-          borderStyle: theme.borderStyle,
-          borderColor: theme.borderColor,
+          border: `${theme.borderStyle} 1px ${theme.borderColor}`,
+          boxShadow: theme.shadow,
+          backgroundColor: theme.cardBackground,
         }}
       >
         <h2>{drink.strDrink}</h2>

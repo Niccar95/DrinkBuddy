@@ -1,12 +1,12 @@
 @import "breakpoints";
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 }
 
 * {
@@ -25,11 +25,13 @@
 
 a {
   font-weight: 500;
-  color: whitesmoke;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
+}
+a:visited {
+  color: inherit;
 }
 
 html,
@@ -74,7 +76,6 @@ header {
     align-items: center;
     justify-content: flex-end;
     padding: 1em;
-    background-color: black;
     width: 50%;
 
     @include desktop() {
@@ -96,7 +97,7 @@ header {
     }
 
     .hamburgerMenu {
-      height: 50px;
+      height: 40px;
       width: 4em;
       display: flex;
       flex-direction: column;
@@ -109,8 +110,8 @@ header {
     }
 
     .burgerBar {
-      width: 4em;
-      height: 0.4em;
+      width: 3em;
+      height: 0.3em;
       background-color: white;
       border-radius: 0.5em;
     }
@@ -118,7 +119,6 @@ header {
     .menu {
       width: 100%;
       height: 400px;
-      background-color: grey;
       position: absolute;
       top: 100%;
       right: -100%;
@@ -184,6 +184,7 @@ form {
       height: 100%;
       padding: 1em;
       width: 100%;
+      font-size: 1rem;
       background-image: url("/src/assets/magnifying-glass-solid.svg");
       background-position: 10px 10px;
       background-repeat: no-repeat;
@@ -220,5 +221,6 @@ button:focus-visible {
 }
 
 footer {
+  height: 200px;
   padding: 2em;
 }
