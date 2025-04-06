@@ -4,35 +4,49 @@ import "./styles/main.scss";
 import { ITheme, ThemeContext, themes } from "./contexts/ThemeContext";
 import { useState } from "react";
 import { ThemeButton } from "./components/ThemeButton";
+import { Slide, ToastContainer } from "react-toastify";
 
 function App() {
-  const [theme, setTheme] = useState<ITheme>(themes.dark);
+  const [colorTheme, setTheme] = useState<ITheme>(themes.dark);
 
   const toggleTheme = () => {
-    if (theme.name === "Dark") {
+    if (colorTheme.name === "Dark") {
       setTheme(themes.light);
-      console.log(theme.name);
     } else {
       setTheme(themes.dark);
-      console.log(theme.name);
     }
   };
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext.Provider value={colorTheme}>
         <div
           style={{
-            backgroundColor: theme.backgroundColor,
-            color: theme.textColor,
-            boxShadow: theme.shadow,
+            backgroundColor: colorTheme.backgroundColor,
+            color: colorTheme.textColor,
+            boxShadow: colorTheme.shadow,
             transition: "all 0.3s ease-in-out",
           }}
         >
           <ThemeButton click={toggleTheme}>
-            <>Change theme to: {theme.name === "Dark" ? "Light" : "Dark"}</>
+            <>
+              Change theme to: {colorTheme.name === "Dark" ? "Light" : "Dark"}
+            </>
           </ThemeButton>
           <RouterProvider router={router} />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme={colorTheme.name.toLowerCase() === "dark" ? "dark" : "light"}
+            transition={Slide}
+          />
         </div>
       </ThemeContext.Provider>
     </>

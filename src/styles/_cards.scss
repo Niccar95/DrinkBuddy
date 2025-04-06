@@ -3,33 +3,41 @@
 #drinkCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1em;
+  gap: 0.5em;
   padding: 1em;
+  position: relative;
 
   @include desktop() {
     width: 100%;
   }
 
-  .drinkImgContainer {
-    width: 60%;
-    position: relative;
-
-    img {
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .drinkTag {
-      position: absolute;
-      padding: 0.5em 1em;
-      background: crimson;
-      top: 0;
-      right: 0;
-    }
+  .cardHeading {
+    text-transform: uppercase;
   }
 
+
+  .drinkImgContainer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+  
+
   .readMoreLink {
+    font-size: 14px;
     text-decoration: underline;
   }
 }
@@ -57,36 +65,29 @@
       width: 100%;
     }
 
-    .drinkTag {
-      position: absolute;
-      padding: 0.5em 1em;
-      background: crimson;
-      top: 0;
-      right: 0;
-    }
   }
-
+  
   .infoSection {
     display: flex;
     flex-direction: column;
     gap: 2em;
-
+    
     @include desktop() {
       width: 50%;
     }
-
+    
     .ingredientsList {
       list-style: none;
       padding-left: 0;
-
+      
       .listItem {
         display: flex;
         align-items: flex-start;
-
+        
         @include desktop() {
           padding-left: 1em;
         }
-
+        
         &::before {
           content: "🍸";
           font-size: 1em;
@@ -96,4 +97,43 @@
       }
     }
   }
+}
+
+.drinkTag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  background: crimson;
+}
+
+
+.favButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #ffb300; 
+  transition: transform 0.2s ease;
+  padding: 0;
+  align-self: flex-end;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
 }
