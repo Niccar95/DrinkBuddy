@@ -5,6 +5,8 @@ import { ITheme, ThemeContext, themes } from "./contexts/ThemeContext";
 import { useState } from "react";
 import { ThemeButton } from "./components/ThemeButton";
 import { Slide, ToastContainer } from "react-toastify";
+import "@theme-toggles/react/css/Classic.css";
+import { Classic } from "@theme-toggles/react";
 
 function App() {
   const [colorTheme, setTheme] = useState<ITheme>(themes.dark);
@@ -29,10 +31,16 @@ function App() {
           }}
         >
           <ThemeButton click={toggleTheme}>
-            <>
-              Change theme to: {colorTheme.name === "Dark" ? "Light" : "Dark"}
-            </>
+            <Classic
+              duration={750}
+              toggled={colorTheme.name === "Dark"}
+              toggle={toggleTheme}
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
           </ThemeButton>
+          <p> {colorTheme.name === "Dark" ? "Light" : "Dark"}</p>
           <RouterProvider router={router} />
           <ToastContainer
             position="top-right"

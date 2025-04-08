@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { IDrink } from "../models/IDrink";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { Slide, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface IDrinkProps {
   drink: IDrink;
@@ -51,32 +51,35 @@ export const Drink = ({
             onClick={handleNavigation}
           />
         </div>
-        <NavLink
-          className="readMoreLink"
-          to={"/drink/" + drink.idDrink}
-          style={{ color: theme.textColor }}
-        >
-          Read more
-        </NavLink>
-        <button
-          onClick={() => {
-            handleAddDrink();
-            notify();
-          }}
-          disabled={isDrinkAdded(drink.idDrink)}
-          className="favButton"
-          title={
-            isDrinkAdded(drink.idDrink)
-              ? "Already in favourites"
-              : "Add to favourites"
-          }
-        >
-          <i
-            className={
-              isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
+
+        <section className="actionSection">
+          <NavLink
+            className="readMoreLink"
+            to={"/drink/" + drink.idDrink}
+            style={{ color: theme.textColor }}
+          >
+            Read more
+          </NavLink>
+          <button
+            onClick={() => {
+              handleAddDrink();
+              notify();
+            }}
+            disabled={isDrinkAdded(drink.idDrink)}
+            className="favButton"
+            title={
+              isDrinkAdded(drink.idDrink)
+                ? "Already in favourites"
+                : "Add to favourites"
             }
-          ></i>
-        </button>
+          >
+            <i
+              className={
+                isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
+              }
+            ></i>
+          </button>
+        </section>
       </article>
     </>
   );

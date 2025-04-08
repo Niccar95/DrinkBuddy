@@ -193,33 +193,7 @@ form {
       padding-left: 40px;
       box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     }
-    .searchButton {
-      height: 100%;
-      padding: 0.2em 2em;
-      border: none;
-      border-left: solid white;
-    }
   }
-}
-
-button {
-  border: 1px solid transparent;
-  padding: 0.4em 1.5em;
-  width: fit-content;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #0090ce;
-  color: white;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #ffffff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 footer {
