@@ -2,12 +2,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeButton } from "../components/ThemeButton";
+import { Classic } from "@theme-toggles/react";
+import "@theme-toggles/react/css/Classic.css";
 
 export const Layout = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [burgerClass, setBurgerClass] = useState("burgerBar unclicked");
   const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  const theme = useContext(ThemeContext);
 
   const updateMenu = () => {
     console.log("Menu clicked");
@@ -78,6 +81,19 @@ export const Layout = () => {
             </ul>
           </div>
           <ul className="navList">
+            <ThemeButton click={toggleTheme}>
+              <Classic
+                duration={750}
+                toggled={theme.name === "Dark"}
+                toggle={toggleTheme}
+                placeholder={undefined}
+                value={theme.name === "Dark" ? "dark" : "light"}
+                color="primary"
+                children={null}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            </ThemeButton>
             <li>
               <i className="bi bi-house"></i> <NavLink to={"/"}>Home</NavLink>
             </li>

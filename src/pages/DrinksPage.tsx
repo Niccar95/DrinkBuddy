@@ -67,7 +67,7 @@ export const DrinksPage = () => {
   };
 
   return (
-    <>
+    <section className="content">
       <h1>Search for drinks</h1>
       <SearchForm
         searchDrinks={(text) => setSearchParams({ query: text })}
@@ -82,6 +82,6 @@ export const DrinksPage = () => {
         findDrink={findDrink}
         isDrinkAdded={isDrinkAdded}
       ></Drinks>
-    </>
+    </section>
   );
 };

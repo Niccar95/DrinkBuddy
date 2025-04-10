@@ -1,12 +1,10 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Router";
-import "./styles/main.scss";
 import { ITheme, ThemeContext, themes } from "./contexts/ThemeContext";
 import { useState } from "react";
-import { ThemeButton } from "./components/ThemeButton";
 import { Slide, ToastContainer } from "react-toastify";
 import "@theme-toggles/react/css/Classic.css";
-import { Classic } from "@theme-toggles/react";
+import "./styles/main.scss";
 
 function App() {
   const [colorTheme, setTheme] = useState<ITheme>(themes.dark);
@@ -21,7 +19,7 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={colorTheme}>
+      <ThemeContext.Provider value={{ theme: colorTheme, toggleTheme }}>
         <div
           style={{
             backgroundColor: colorTheme.backgroundColor,
@@ -30,17 +28,6 @@ function App() {
             transition: "all 0.3s ease-in-out",
           }}
         >
-          <ThemeButton click={toggleTheme}>
-            <Classic
-              duration={750}
-              toggled={colorTheme.name === "Dark"}
-              toggle={toggleTheme}
-              placeholder={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            />
-          </ThemeButton>
-          <p> {colorTheme.name === "Dark" ? "Light" : "Dark"}</p>
           <RouterProvider router={router} />
           <ToastContainer
             position="top-right"

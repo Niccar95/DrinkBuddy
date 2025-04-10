@@ -28,59 +28,57 @@ export const Drink = ({
     findDrink(drink.idDrink);
   };
 
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
-  const notify = () => toast(`${drink.strDrink} was added to favourites`);
+  const notify = () => toast(`🍹 – ${drink.strDrink} was added to favourites`);
 
   return (
-    <>
-      <article
-        id="drinkCard"
-        style={{
-          border: `${theme.borderStyle} 1px ${theme.borderColor}`,
-          boxShadow: theme.shadow,
-          backgroundColor: theme.cardBackground,
-        }}
-      >
-        <h3 className="cardHeading">{drink.strDrink}</h3>
-        <p className="drinkTag">{drink.strAlcoholic}</p>
-        <div className="drinkImgContainer">
-          <img
-            src={drink.strDrinkThumb}
-            alt={drink.strDrink}
-            onClick={handleNavigation}
-          />
-        </div>
+    <article
+      id="drinkCard"
+      style={{
+        border: `${theme.borderStyle} 1px ${theme.borderColor}`,
+        boxShadow: theme.shadow,
+        backgroundColor: theme.cardBackground,
+      }}
+    >
+      <h3 className="cardHeading">{drink.strDrink}</h3>
+      <p className="drinkTag">{drink.strAlcoholic}</p>
+      <div className="drinkImgContainer">
+        <img
+          src={drink.strDrinkThumb}
+          alt={drink.strDrink}
+          onClick={handleNavigation}
+        />
+      </div>
 
-        <section className="actionSection">
-          <NavLink
-            className="readMoreLink"
-            to={"/drink/" + drink.idDrink}
-            style={{ color: theme.textColor }}
-          >
-            Read more
-          </NavLink>
-          <button
-            onClick={() => {
-              handleAddDrink();
-              notify();
-            }}
-            disabled={isDrinkAdded(drink.idDrink)}
-            className="favButton"
-            title={
-              isDrinkAdded(drink.idDrink)
-                ? "Already in favourites"
-                : "Add to favourites"
+      <section className="actionSection">
+        <NavLink
+          className="readMoreLink"
+          to={"/drink/" + drink.idDrink}
+          style={{ color: theme.textColor }}
+        >
+          Read more
+        </NavLink>
+        <button
+          onClick={() => {
+            handleAddDrink();
+            notify();
+          }}
+          disabled={isDrinkAdded(drink.idDrink)}
+          className="favButton"
+          title={
+            isDrinkAdded(drink.idDrink)
+              ? "Already in favourites"
+              : "Add to favourites"
+          }
+        >
+          <i
+            className={
+              isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
             }
-          >
-            <i
-              className={
-                isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
-              }
-            ></i>
-          </button>
-        </section>
-      </article>
-    </>
+          ></i>
+        </button>
+      </section>
+    </article>
   );
 };

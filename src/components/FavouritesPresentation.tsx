@@ -4,7 +4,6 @@ import { DrinkInfo } from "./DrinkInfo";
 
 export const FavouritesPresentation = () => {
   const { removeDrinks, favouriteList } = useDrink();
-  console.log(favouriteList);
 
   const completeFavouritesList = favouriteList as ICompleteDrinkInfo[];
   return (

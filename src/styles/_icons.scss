@@ -1,0 +1,26 @@
+
+
+@keyframes subtleTilt {
+    0%   { transform: rotate(30deg); }
+    50%  { transform: rotate(20deg); }
+    100% { transform: rotate(30deg); }
+  }
+  
+  .dice {
+    margin-left: 1rem;
+  
+    .bi-dice-4 {
+        font-size: 1.5rem;
+        display: inline-block;
+        animation: subtleTilt 2s ease-in-out infinite;
+        transform-origin: center; 
+        cursor: pointer;
+        transition: scale 0.3s ease-in-out, color 0.3s ease-in-out;
+
+      &:hover {
+        animation-play-state: paused;
+        color: #ffd166;
+        scale: 1.2;
+      }
+    }
+  }

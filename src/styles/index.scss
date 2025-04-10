@@ -5,7 +5,7 @@
 
 :root {
   font-family: "Poppins", sans-serif;
-  line-height: 1.5;
+  line-height: 1.8;
   font-weight: 400;
 }
 
@@ -18,9 +18,7 @@
 #root {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 1em;
-  min-height: 100vh;
 }
 
 a {
@@ -56,7 +54,7 @@ header {
   }
 
   .logoContainer {
-    height: auto;
+    height: 70px;
     width: 50%;
 
     @include desktop() {
@@ -71,92 +69,32 @@ header {
     }
   }
 
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 1em;
-    width: 50%;
 
-    @include desktop() {
-      justify-content: flex-start;
-      padding-left: 3em;
-      width: 100%;
-      padding: 1em;
-      padding-left: 3em;
-    }
-
-    ul {
-      display: none;
-      @include desktop() {
-        width: 100%;
-        display: flex;
-        gap: 4em;
-        list-style: none;
-      }
-    }
-
-    .hamburgerMenu {
-      height: 40px;
-      width: 4em;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-
-      @include desktop() {
-        display: none;
-      }
-    }
-
-    .burgerBar {
-      width: 3em;
-      height: 0.3em;
-      background-color: white;
-      border-radius: 0.5em;
-    }
-
-    .menu {
-      width: 100%;
-      height: 400px;
-      position: absolute;
-      top: 100%;
-      right: -100%;
-      z-index: 100;
-      transition: ease-in-out 0.5s;
-      background-color: inherit;
-    }
-
-    .menu ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu li {
-      font-size: 1.5em;
-      margin: 1em 0;
-    }
-
-    .visible {
-      right: 0;
-      opacity: 1;
-    }
-
-    .hidden {
-      opacity: 0;
-    }
-  }
 }
 
 main {
   display: flex;
-  flex-direction: column;
-  gap: 2em;
-  padding: 2em;
+  flex-grow: 1;
+  padding: 1rem;
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  
+  @include desktop() {
+    width: 90%;
+    margin: 0 auto;
+    min-height: calc(100vh - 90px);
+    padding: 2rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+    @include desktop() {
+    }
+  }
 
   .pageTitle {
     font-size: 3.2em;

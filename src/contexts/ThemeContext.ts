@@ -8,10 +8,18 @@ export interface ITheme {
   cardBackground: string;
   shadow: string;
   accentColor: string;
+  asideBackground: string;
+  asideTextColor: string;
+  asideBorderColor: string;
 }
 export interface IThemes {
   light: ITheme;
   dark: ITheme;
+}
+
+export interface IThemeContext {
+  theme: ITheme;
+  toggleTheme: () => void;
 }
 
 export const themes: IThemes = {
@@ -24,6 +32,9 @@ export const themes: IThemes = {
     cardBackground: "#FFFFFF",
     shadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
     accentColor: "#E63946",
+    asideBackground: "#fffbe6",
+    asideTextColor: "#1D3557",
+    asideBorderColor: "#ffd166",
   },
 
   dark: {
@@ -35,7 +46,13 @@ export const themes: IThemes = {
     cardBackground: "#2A3D5F",
     shadow: "0px 4px 12px rgba(255, 255, 255, 0.1)",
     accentColor: "#F4A261",
+    asideBackground: "#fffbe6",
+    asideTextColor: "#1D3557",
+    asideBorderColor: "#ffd166",
   },
 };
 
-export const ThemeContext = createContext<ITheme>(themes.dark);
+export const ThemeContext = createContext<IThemeContext>({
+  theme: themes.dark,
+  toggleTheme: () => {},
+});
