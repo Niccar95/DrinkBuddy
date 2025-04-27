@@ -6,8 +6,12 @@ export const FavouritesPresentation = () => {
   const { removeDrinks, favouriteList } = useDrink();
 
   const completeFavouritesList = favouriteList as ICompleteDrinkInfo[];
+
   return (
     <>
+      <div>
+        Drinks added to your favourites: {completeFavouritesList.length}
+      </div>
       {completeFavouritesList.length > 0 ? (
         completeFavouritesList.map((drink) => (
           <div key={drink.idDrink}>

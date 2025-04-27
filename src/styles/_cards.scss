@@ -3,9 +3,20 @@
 #drinkCard {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding: 1em;
+  gap: 1.5em;
+  height:fit-content;
+  padding: 1.5em;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
  
 
   @include desktop() {
@@ -18,9 +29,9 @@
 
   .drinkImgContainer {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 200px;
+    border-radius: 0.75rem;
     overflow: hidden;
-
   
     img {
       width: 100%;
@@ -48,34 +59,6 @@
 
     }
 
-    .favButton {
-      display: flex;
-      align-items: center;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #ffb300; 
-      font-size: 1.5rem;
-      transition: transform 0.2s ease;
-      padding: 0;
-      width: 20px;
-      height: 20px;
-    
-      &:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
-    
-      &:hover:not(:disabled) {
-        transform: scale(1.2);
-      }
-    
-      &:focus {
-        outline: none;
-      }
-    
-    }
-
   }
   
 }
@@ -85,6 +68,7 @@
   flex-direction: column;
   gap: 0.5em;
   padding: 1em;
+  border-radius: 1rem;
 
   @include desktop() {
     gap: 2em;

@@ -12,20 +12,13 @@ export const DrinkDetails = ({
   addDrink,
   isDrinkAdded,
 }: IFoundDrinkProps) => {
-  const handleAddDrink = () => {
-    addDrink(foundDrink);
-  };
   return (
     <>
-      <DrinkInfo drink={foundDrink} />
-      <button
-        onClick={handleAddDrink}
-        disabled={isDrinkAdded(foundDrink.idDrink)}
-      >
-        {isDrinkAdded(foundDrink.idDrink)
-          ? "Added to Favourites"
-          : "Add to Favourites"}
-      </button>
+      <DrinkInfo
+        drink={foundDrink}
+        addDrink={addDrink}
+        isDrinkAdded={isDrinkAdded}
+      />
     </>
   );
 };

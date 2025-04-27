@@ -18,11 +18,40 @@ button:hover {
 .searchButton {
   height: 100%;
   padding: 0.2em 2em;
-  border-radius: 0;
+  border-radius: 0px 30px 30px 0px;
   border: none;
-  border-left: solid white;
 }
 
 .themeButton {
+  border: solid black;
+
+}
+
+
+.favButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffb300; 
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
 
 }
