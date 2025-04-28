@@ -64,6 +64,7 @@
 }
 
 .drinkDetailsCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -76,8 +77,9 @@
   }
 
   .imageContainer {
-    width: 50%;
     position: relative;
+    width: 50%;
+    border-radius: 0.75rem;
 
     @include desktop() {
       width: 30%;
@@ -85,6 +87,7 @@
 
     .drinkImage {
       width: 100%;
+      border-radius: 0.75rem;
     }
   }
 
@@ -95,6 +98,12 @@
     
     @include desktop() {
       width: 50%;
+    }
+
+    .drinkNameContainer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
     
     .ingredientsList {

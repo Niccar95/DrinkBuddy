@@ -48,7 +48,30 @@ export const DrinkInfo = ({
         <p className="drinkTag">{drink.strAlcoholic}</p>
       </div>
       <section className="infoSection">
-        <h2>{drink.strDrink}</h2>
+        <div className="drinkNameContainer">
+          <h2>{drink.strDrink}</h2>
+          {addDrink !== undefined && isDrinkAdded !== undefined && (
+            <button
+              onClick={() => {
+                handleAddDrink();
+                notify();
+              }}
+              disabled={isDrinkAdded(drink.idDrink)}
+              className="favButton"
+              title={
+                isDrinkAdded(drink.idDrink)
+                  ? "Already in favourites"
+                  : "Add to favourites"
+              }
+            >
+              <i
+                className={
+                  isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
+                }
+              ></i>
+            </button>
+          )}
+        </div>
         <ul className="ingredientsList">
           {ingredientKeys.map((key) => (
             <li className="listItem" key={key}>
@@ -60,28 +83,6 @@ export const DrinkInfo = ({
           <p className="drinkInstructions">{drink.strInstructions}</p>
         </section>
       </section>
-
-      {addDrink !== undefined && isDrinkAdded !== undefined && (
-        <button
-          onClick={() => {
-            handleAddDrink();
-            notify();
-          }}
-          disabled={isDrinkAdded(drink.idDrink)}
-          className="favButton"
-          title={
-            isDrinkAdded(drink.idDrink)
-              ? "Already in favourites"
-              : "Add to favourites"
-          }
-        >
-          <i
-            className={
-              isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
-            }
-          ></i>
-        </button>
-      )}
     </article>
   );
 };

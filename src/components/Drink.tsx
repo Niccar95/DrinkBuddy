@@ -32,6 +32,8 @@ export const Drink = ({
 
   const notify = () => toast(`🍹 – ${drink.strDrink} was added to favourites`);
 
+  const drinkNameLength = drink.strDrink.length;
+
   return (
     <article
       id="drinkCard"
@@ -41,7 +43,11 @@ export const Drink = ({
         backgroundColor: theme.cardBackground,
       }}
     >
-      <h3 className="cardHeading">{drink.strDrink}</h3>
+      {drinkNameLength <= 12 ? (
+        <h3 className="cardHeading">{drink.strDrink}</h3>
+      ) : (
+        <h3 className="cardHeading">{drink.strDrink.slice(0, 12)} ...</h3>
+      )}
       <p className="drinkTag">{drink.strAlcoholic}</p>
       <div className="drinkImgContainer">
         <img

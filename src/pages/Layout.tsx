@@ -2,7 +2,6 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { ThemeButton } from "../components/ThemeButton";
 import { Classic } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Classic.css";
 
@@ -81,19 +80,21 @@ export const Layout = () => {
             </ul>
           </div>
           <ul className="navList">
-            <ThemeButton click={toggleTheme}>
-              <Classic
-                duration={750}
-                toggled={theme.name === "Dark"}
-                toggle={toggleTheme}
-                placeholder={undefined}
-                value={theme.name === "Dark" ? "dark" : "light"}
-                color="primary"
-                children={null}
-                onPointerEnterCapture={undefined}
-                onPointerLeaveCapture={undefined}
-              />
-            </ThemeButton>
+            <Classic
+              className="themeButton"
+              style={{
+                color: theme.name === "Dark" ? "#fff" : "#000",
+              }}
+              duration={750}
+              toggled={theme.name === "Dark"}
+              toggle={toggleTheme}
+              onToggle={toggleTheme}
+              placeholder={undefined}
+              value={theme.name === "Dark" ? "dark" : "light"}
+              children={null}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
             <li>
               <i className="bi bi-house"></i> <NavLink to={"/"}>Home</NavLink>
             </li>

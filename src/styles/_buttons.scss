@@ -23,8 +23,14 @@ button:hover {
 }
 
 .themeButton {
-  border: solid black;
-
+  display: flex;   
+  align-items: center;        
+  justify-content: center;  
+  font-size: 30px;
+  padding: 0;                
+  width: auto;               
+  height: auto;               
+  cursor: pointer; 
 }
 
 
@@ -55,3 +61,5 @@ button:hover {
   }
 
 }
+
+

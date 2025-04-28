@@ -11,6 +11,7 @@ export interface ITheme {
   asideBackground: string;
   asideTextColor: string;
   asideBorderColor: string;
+  toggleColor: string;
 }
 export interface IThemes {
   light: ITheme;
@@ -35,6 +36,7 @@ export const themes: IThemes = {
     asideBackground: "#fffbe6",
     asideTextColor: "#1D3557",
     asideBorderColor: "#ffd166",
+    toggleColor: "#fff",
   },
 
   dark: {
@@ -49,6 +51,7 @@ export const themes: IThemes = {
     asideBackground: "#fffbe6",
     asideTextColor: "#1D3557",
     asideBorderColor: "#ffd166",
+    toggleColor: "#000",
   },
 };
 
