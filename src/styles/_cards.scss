@@ -68,66 +68,79 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  padding: 1em;
+  padding: 2em;
   border-radius: 1rem;
 
   @include desktop() {
-    gap: 2em;
-    flex-direction: row;
+    gap: 1em;
   }
 
-  .imageContainer {
-    position: relative;
-    width: 50%;
-    border-radius: 0.75rem;
 
-    @include desktop() {
-      width: 30%;
-    }
-
-    .drinkImage {
-      width: 100%;
-      border-radius: 0.75rem;
-    }
-  }
-
-  .infoSection {
+  .cardContent {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    
+    gap: 0.5em;
+    border-radius: 1rem;
     @include desktop() {
-      width: 50%;
+      flex-direction: row;
+      gap: 2em;
     }
+  
 
-    .drinkNameContainer {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    .imageContainer {
+      position: relative;
+      width: 50%;
+      border-radius: 0.75rem;
+  
+      @include desktop() {
+        width: 30%;
+      }
+  
+      .drinkImage {
+        width: 100%;
+        border-radius: 0.75rem;
+      }
     }
-    
-    .ingredientsList {
-      list-style: none;
-      padding-left: 0;
+  
+    .infoSection {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
       
-      .listItem {
+      @include desktop() {
+        width: 50%;
+      }
+  
+      .drinkNameContainer {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .ingredientsList {
+        list-style: none;
+        padding-left: 0;
         
-        @include desktop() {
-          padding-left: 1em;
-        }
-        
-        &::before {
-          content: "🍸";
-          font-size: 1em;
-          margin-right: 0.5em;
-          line-height: 2;
+        .listItem {
+          display: flex;
+          align-items: flex-start;
+          
+          @include desktop() {
+            padding-left: 1em;
+          }
+          
+          &::before {
+            content: "🍸";
+            font-size: 1em;
+            margin-right: 0.5em;
+            line-height: 2;
+          }
         }
       }
     }
   }
-}
+  }
+
 
 
 

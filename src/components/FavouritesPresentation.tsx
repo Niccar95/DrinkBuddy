@@ -15,10 +15,7 @@ export const FavouritesPresentation = () => {
       {completeFavouritesList.length > 0 ? (
         completeFavouritesList.map((drink) => (
           <div key={drink.idDrink}>
-            <DrinkInfo drink={drink} />
-            <button onClick={() => removeDrinks(drink.idDrink)}>
-              Remove from favourites
-            </button>
+            <DrinkInfo drink={drink} removeDrinks={removeDrinks} />
           </div>
         ))
       ) : (

@@ -7,12 +7,14 @@ interface IDrinkInfoProps {
   drink: ICompleteDrinkInfo;
   addDrink?: (drink: ICompleteDrinkInfo) => void;
   isDrinkAdded?: (id: string) => boolean;
+  removeDrinks?: (id: string) => void;
 }
 
 export const DrinkInfo = ({
   drink,
   addDrink,
   isDrinkAdded,
+  removeDrinks,
 }: IDrinkInfoProps) => {
   const ingredientKeys = Object.keys(drink).filter(
     (key) =>
@@ -39,50 +41,59 @@ export const DrinkInfo = ({
         backgroundColor: theme.cardBackground,
       }}
     >
-      <div className="imageContainer">
-        <img
-          className="drinkImage"
-          src={drink.strDrinkThumb}
-          alt={drink.strDrink}
-        ></img>
-        <p className="drinkTag">{drink.strAlcoholic}</p>
-      </div>
-      <section className="infoSection">
-        <div className="drinkNameContainer">
-          <h2>{drink.strDrink}</h2>
-          {addDrink !== undefined && isDrinkAdded !== undefined && (
-            <button
-              onClick={() => {
-                handleAddDrink();
-                notify();
-              }}
-              disabled={isDrinkAdded(drink.idDrink)}
-              className="favButton"
-              title={
-                isDrinkAdded(drink.idDrink)
-                  ? "Already in favourites"
-                  : "Add to favourites"
-              }
-            >
-              <i
-                className={
-                  isDrinkAdded(drink.idDrink) ? "bi bi-star-fill" : "bi bi-star"
-                }
-              ></i>
-            </button>
-          )}
+      <div className="cardContent">
+        <div className="imageContainer">
+          <img
+            className="drinkImage"
+            src={drink.strDrinkThumb}
+            alt={drink.strDrink}
+          ></img>
+          <p className="drinkTag">{drink.strAlcoholic}</p>
         </div>
-        <ul className="ingredientsList">
-          {ingredientKeys.map((key) => (
-            <li className="listItem" key={key}>
-              {drink[key as keyof ICompleteDrinkInfo]}
-            </li>
-          ))}
-        </ul>
-        <section className="instructionSection">
-          <p className="drinkInstructions">{drink.strInstructions}</p>
+        <section className="infoSection">
+          <div className="drinkNameContainer">
+            <h2>{drink.strDrink}</h2>
+            {addDrink !== undefined && isDrinkAdded !== undefined && (
+              <button
+                onClick={() => {
+                  handleAddDrink();
+                  notify();
+                }}
+                disabled={isDrinkAdded(drink.idDrink)}
+                className="favButton"
+                title={
+                  isDrinkAdded(drink.idDrink)
+                    ? "Already in favourites"
+                    : "Add to favourites"
+                }
+              >
+                <i
+                  className={
+                    isDrinkAdded(drink.idDrink)
+                      ? "bi bi-star-fill"
+                      : "bi bi-star"
+                  }
+                ></i>
+              </button>
+            )}
+          </div>
+          <ul className="ingredientsList">
+            {ingredientKeys.map((key) => (
+              <li className="listItem" key={key}>
+                {drink[key as keyof ICompleteDrinkInfo]}
+              </li>
+            ))}
+          </ul>
+          <section className="instructionSection">
+            <p className="drinkInstructions">{drink.strInstructions}</p>
+          </section>
         </section>
-      </section>
+      </div>
+      {removeDrinks !== undefined && (
+        <button onClick={() => removeDrinks(drink.idDrink)}>
+          Remove from favourites
+        </button>
+      )}
     </article>
   );
 };
