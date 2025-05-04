@@ -40,7 +40,7 @@ export const Drink = ({
       style={{
         border: `${theme.borderStyle} 1px ${theme.borderColor}`,
         boxShadow: theme.shadow,
-        backgroundColor: theme.cardBackground,
+        background: theme.cardBackground,
       }}
     >
       {drinkNameLength <= 12 ? (

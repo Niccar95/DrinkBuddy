@@ -1,4 +1,5 @@
 import { createContext } from "react";
+
 export interface ITheme {
   name: string;
   backgroundColor: string;
@@ -13,6 +14,7 @@ export interface ITheme {
   asideBorderColor: string;
   toggleColor: string;
 }
+
 export interface IThemes {
   light: ITheme;
   dark: ITheme;
@@ -26,11 +28,11 @@ export interface IThemeContext {
 export const themes: IThemes = {
   light: {
     name: "Light",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)",
     textColor: "#1D3557",
     borderStyle: "solid",
     borderColor: "#DDDDDD",
-    cardBackground: "#FFFFFF",
+    cardBackground: "linear-gradient(135deg, #FFFFFF 0%, #F1F1F1 100%)",
     shadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
     accentColor: "#E63946",
     asideBackground: "#fffbe6",
@@ -41,11 +43,11 @@ export const themes: IThemes = {
 
   dark: {
     name: "Dark",
-    backgroundColor: "#1B263B",
+    backgroundColor: "linear-gradient(135deg, #1B263B 0%, #0d1b2a 100%)",
     textColor: "#F1FAEE",
     borderStyle: "solid",
     borderColor: "#457B9D",
-    cardBackground: "#2A3D5F",
+    cardBackground: "linear-gradient(135deg, #2A3D5F 0%, #1F2A3E 100%)",
     shadow: "0px 4px 12px rgba(255, 255, 255, 0.1)",
     accentColor: "#F4A261",
     asideBackground: "#fffbe6",

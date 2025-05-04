@@ -43,7 +43,7 @@ export const Layout = () => {
         </div>
         <nav
           style={{
-            backgroundColor: theme.backgroundColor,
+            background: theme.backgroundColor,
             color: theme.textColor,
             borderBottom: `${theme.borderStyle} 1px ${theme.borderColor}`,
             boxShadow: theme.shadow,
@@ -114,7 +114,7 @@ export const Layout = () => {
       </main>
       <footer
         style={{
-          backgroundColor: theme.backgroundColor,
+          background: theme.backgroundColor,
           color: theme.textColor,
           borderTop: `${theme.borderStyle} 1px ${theme.borderColor}`,
           boxShadow: theme.shadow,

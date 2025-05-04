@@ -39,13 +39,16 @@ export const SearchForm = ({
           <button className="searchButton">Search</button>
         </div>
         <div className="checkboxContainer">
-          <label htmlFor="nonAlcoholic">Non-alcoholic only: </label>
-          <input
-            type="checkbox"
-            id="nonAlcoholic"
-            checked={nonAlcoholicOnly}
-            onChange={handleCheckboxChange}
-          ></input>
+          <span className="checkboxLabel">Non-alcoholic only:</span>
+          <label className="customCheckbox">
+            <input
+              type="checkbox"
+              id="nonAlcoholic"
+              checked={nonAlcoholicOnly}
+              onChange={handleCheckboxChange}
+            />
+            <span className="checkmark"></span>
+          </label>
         </div>
       </form>
     </>

@@ -22,7 +22,7 @@ function App() {
       <ThemeContext.Provider value={{ theme: colorTheme, toggleTheme }}>
         <div
           style={{
-            backgroundColor: colorTheme.backgroundColor,
+            background: colorTheme.backgroundColor,
             color: colorTheme.textColor,
             boxShadow: colorTheme.shadow,
             transition: "all 0.3s ease-in-out",
