@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IDrink } from "../models/IDrink";
 import { getDrinks } from "../services/drinkService";
 import { SearchForm } from "../components/SearchForm";
@@ -8,9 +8,11 @@ import { useFindDrink } from "../hooks/useFindDrink";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { IDrinkLoader } from "../loader/drinkLoader";
 import { useFilterDrinks } from "../hooks/useFilterDrinks";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export const DrinksPage = () => {
   const { loadedDrinks } = useLoaderData() as IDrinkLoader;
+  const { theme } = useContext(ThemeContext);
   const { addDrinks, isDrinkAdded } = useDrink();
   const { findDrink } = useFindDrink();
   const [loading, setLoading] = useState(false);
@@ -75,7 +77,18 @@ export const DrinksPage = () => {
         nonAlcoholicOnly={nonAlcoholicOnly}
       ></SearchForm>
       {loading && submit && <div>Loading...</div>}
-      {!loading && drinks.length === 0 && submit && <p>No drinks found.</p>}
+      {!loading && drinks.length === 0 && submit && (
+        <div className="wrapper">
+          <div className="imageWrapper">
+            <img
+              className="cocktailImage"
+              src={`/src/assets/cocktails-${theme.name}.png`}
+              alt="Cocktails"
+            ></img>
+          </div>
+          <p>No drinks found.</p>
+        </div>
+      )}
       <Drinks
         drinks={drinks}
         addDrink={addDrinks}

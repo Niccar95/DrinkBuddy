@@ -12,7 +12,6 @@ export const Layout = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const updateMenu = () => {
-    console.log("Menu clicked");
     if (!isMenuClicked) {
       setBurgerClass("burgerBar clicked");
       setMenuClass("menu visible");
@@ -54,7 +53,15 @@ export const Layout = () => {
             <div className={burgerClass}></div>
             <div className={burgerClass}></div>
           </div>
-          <div className={menuClass}>
+          <div
+            className={menuClass}
+            style={{
+              background: theme.backgroundColor,
+              color: theme.textColor,
+              borderBottom: `${theme.borderStyle} 1px ${theme.borderColor}`,
+              boxShadow: theme.shadow,
+            }}
+          >
             <ul className="navList">
               <li>
                 <i className="bi bi-house"></i>
