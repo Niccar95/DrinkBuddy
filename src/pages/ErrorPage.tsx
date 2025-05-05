@@ -19,7 +19,7 @@ export const ErrorPage = () => {
         <div className="imageWrapper">
           <img
             className="cocktailImage"
-            src={`/src/assets/cocktails-${theme.name}.png`}
+            src={`/cocktails-${theme.name}.png`}
             alt="Cocktails"
           ></img>
         </div>
