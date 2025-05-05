@@ -48,6 +48,21 @@ export const Layout = () => {
             boxShadow: theme.shadow,
           }}
         >
+          <Classic
+            className="themeButton"
+            style={{
+              color: theme.name === "Dark" ? "#fff" : "#000",
+            }}
+            duration={750}
+            toggled={theme.name === "Dark"}
+            toggle={toggleTheme}
+            onToggle={toggleTheme}
+            placeholder={undefined}
+            value={theme.name === "Dark" ? "dark" : "light"}
+            children={null}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
           <div className="hamburgerMenu" onClick={updateMenu}>
             <div className={burgerClass}></div>
             <div className={burgerClass}></div>
