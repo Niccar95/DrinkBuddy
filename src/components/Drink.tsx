@@ -46,7 +46,7 @@ export const Drink = ({
       {drinkNameLength <= 12 ? (
         <h3 className="cardHeading">{drink.strDrink}</h3>
       ) : (
-        <h3 className="cardHeading">{drink.strDrink.slice(0, 12)} ...</h3>
+        <h3 className="cardHeading">{drink.strDrink.slice(0, 12)}...</h3>
       )}
       <p className="drinkTag">{drink.strAlcoholic}</p>
       <div className="drinkImgContainer">

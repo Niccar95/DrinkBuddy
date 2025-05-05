@@ -7,13 +7,20 @@ import "@theme-toggles/react/css/Classic.css";
 import "./styles/main.scss";
 
 function App() {
-  const [colorTheme, setTheme] = useState<ITheme>(themes.dark);
+  const [colorTheme, setTheme] = useState<ITheme>(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "light") return themes.light;
+    if (storedTheme === "dark") return themes.dark;
+    return themes.dark;
+  });
 
   const toggleTheme = () => {
     if (colorTheme.name === "Dark") {
       setTheme(themes.light);
+      localStorage.setItem("theme", "light");
     } else {
       setTheme(themes.dark);
+      localStorage.setItem("theme", "dark");
     }
   };
 
