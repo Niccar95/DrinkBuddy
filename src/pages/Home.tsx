@@ -29,7 +29,7 @@ export const Home = () => {
       <section className="content">
         <h1>Home</h1>
         <p className="intro-text">
-          Welcome to <strong>DrinkBuddy</strong> 🍹 – your go-to for discovering
+          Welcome to <strong>Drinkory</strong> 🍹 – your go-to for discovering
           new cocktails and mocktails! Feeling spontaneous? Click the dice to
           shake up a random drink suggestion.
         </p>

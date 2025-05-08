@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "/drinkory.svg";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { Classic } from "@theme-toggles/react";
@@ -31,7 +31,7 @@ export const Layout = () => {
   return (
     <>
       <header>
-        <div
+        {/* <div
           className="logoContainer"
           style={{
             borderBottom: `${theme.borderStyle} 1px ${theme.borderColor}`,
@@ -39,7 +39,7 @@ export const Layout = () => {
           }}
         >
           <img className="logoImg" src={logo}></img>
-        </div>
+        </div> */}
         <nav
           style={{
             background: theme.backgroundColor,
@@ -48,6 +48,7 @@ export const Layout = () => {
             boxShadow: theme.shadow,
           }}
         >
+          <img className="logoImg" src={logo}></img>
           <Classic
             className="themeButton"
             style={{
@@ -144,7 +145,7 @@ export const Layout = () => {
           textAlign: "center",
         }}
       >
-        <p>&copy; {new Date().getFullYear()} DrinkBuddy 🍹</p>
+        <p>&copy; {new Date().getFullYear()} Drinkory 🍹</p>
       </footer>
     </>
   );
