@@ -96,9 +96,6 @@ main {
     flex-direction: column;
     width: 100%;
     gap: 2rem;
-
-    @include desktop() {
-    }
   }
 }
 
@@ -107,7 +104,10 @@ form {
   flex-direction: column;
   gap: 1.2rem;
   width: 100%;
-  max-width: 480px;
+
+    @include desktop() {
+      width: 480px;
+    }
 
   .inputContainer {
     display: flex;
