@@ -3,7 +3,7 @@
 #drinkSection {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
   width: 100%;
 
   @include desktop() {
