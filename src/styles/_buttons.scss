@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 button {
   border: 1px solid transparent;
   padding: 0.6em 1.5em;
@@ -21,13 +23,19 @@ button:hover {
 .searchButton {
   padding: 0.5rem 1.5rem;
   width: 30%;
-  font-size: 1rem;
   border-radius: 0px 9999px 9999px 0px; 
   color: #333;
   background-color: #fff;
   cursor: pointer;
   border-left: 1px solid #ccc; 
   transition: all 0.2s ease-in-out;
+
+
+
+    @include desktop() {
+       width: fit-content;
+      }
+
 
   &:hover {
     background-color: #f0f0f0;
